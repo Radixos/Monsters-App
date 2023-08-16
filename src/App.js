@@ -1,7 +1,8 @@
 import { Component } from 'react';
 
 import CardList from './Components/card-list/card-list.component';
-import logo from './logo.svg';
+import SearchBox from './Components/search-box/search-box.component';
+
 import './App.css';
 
 class App extends Component {
@@ -21,8 +22,7 @@ class App extends Component {
         () => {
           return { monsters: users };
         }
-      )
-      );
+      ));
   }
 
   onSearchChange = (event) => {
@@ -43,7 +43,12 @@ class App extends Component {
 
     return (
       <div className="App">
-        <CardList monsters={filteredMonsters}/>
+        <h1 className="app-title">Monsters App</h1>
+        <SearchBox
+          className="monsters-search-box"
+          onChangeHandler={onSearchChange}
+          placeholder="Search Monsters" />
+        <CardList monsters={filteredMonsters} />
       </div>
     );
   }
